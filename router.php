@@ -16,19 +16,21 @@ if ($access_on!=0) { Logger::access($uri); }
 //
 if (!empty($uri)) {
     $gets = explode('?', $uri, 2);
+    
+    if (count($gets)>1) {
+	    $getParams = explode('&', $gets[1]);
+	    foreach ($getParams as $getParam) {
+	        $pair = explode('=', $getParam, 2);
+	        if (sizeof($pair)==2) {
+	            $_GET[$pair[0]] = urlencode($pair[1]);
+	        }
+	    }
 
-    $getParams = explode('&', $gets[1]);
-    foreach ($getParams as $getParam) {
-        $pair = explode('=', $getParam, 2);
-        if (sizeof($pair)==2) {
-            $_GET[$pair[0]] = urlencode($pair[1]);
-        }
+	    $uri = $gets[0];
     }
-
-    $uri = $gets[0];
 }
 
-if (is_dir($url)) {
+if (is_dir($uri)) {
 	if (file_exists($uri.'/index.php')) {
 		include $uri.'/index.php';
 	} else {

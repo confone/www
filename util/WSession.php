@@ -1,22 +1,21 @@
 <?php
 class WSession {
 
-    public static $AUTHINDEX = 'account_id';
+    public static $AUTHINDEX = 'auth_index';
 	public static $SESSION_KEY = 'CONFONESESSIONID';
-	public static $LAST_ACTIVE = 'LAST_ACTIVE';
 
 	private $sessionId = null;
 	private $sessionCache = null;
 
-	private static $WSession = null;
+	private static $WSESSION = null;
 
 
 	public static function instance() {
-		if (!isset(self::$WSession)) {
-			self::$WSession = new WSession();
+		if (!isset(self::$WSESSION)) {
+			self::$WSESSION = new WSession();
 		}
 
-		return self::$WSession;
+		return self::$WSESSION;
 	}
 
 	private function __construct() {
@@ -39,7 +38,7 @@ class WSession {
 				$this->sessionId = $component_name.substr($rand, 0, 5).substr($time, -10, 10);
 			}
 
-			setcookie(self::$SESSION_KEY, $this->sessionId, 0, '/', '', false, true);
+			setcookie(self::$SESSION_KEY, $this->sessionId, 0, '/', 'confone.com', false, true);
 		}
 	}
 
@@ -49,14 +48,14 @@ class WSession {
 			$session = array();
 		}
 		$session[$key] = $value;
-		$session[self::$LAST_ACTIVE] = time();
-		$this->sessionCache->set($this->sessionId, $session);
+		global $session_expires_in;
+		$this->sessionCache->set($this->sessionId, $session, false, $session_expires_in);
 	}
 
 	public function get($key) {
+		global $session_expires_in;
 		$session = $this->sessionCache->get($this->sessionId);
-		$session[self::$LAST_ACTIVE] = time();
-		$this->sessionCache->set($this->sessionId, $session);
+		$this->sessionCache->set($this->sessionId, $session, false, $session_expires_in);
 		if (isset($session[$key])) {
 			return $session[$key];
 		} else {
