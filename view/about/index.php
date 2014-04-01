@@ -1,8 +1,8 @@
 <?php
 
-include 'include/header.php';
+include 'view/include/header.php';
 ?>
 
 <?php 
-include 'include/footer.php'
+include 'view/include/footer.php';
 ?>
