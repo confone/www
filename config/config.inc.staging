@@ -1,8 +1,8 @@
 <?php 
-$base_url = 'http://local.www.confone.com';
-$account_url = 'http://local.account.confone.com/login';
-$security_url = 'http://local.security.confone.com';
-$content_url = 'http://local.content.confone.com';
+$base_url = 'https://staging.www.confone.com';
+$account_url = 'https://staging.account.confone.com/login';
+$security_url = 'https://staging.security.confone.com';
+$content_url = 'https://staging.content.confone.com';
 
 
 // =======================================================================================
