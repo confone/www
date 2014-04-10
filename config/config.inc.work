@@ -1,0 +1,30 @@
+<?php 
+$base_url = 'http://local.www.confone.com';
+$account_url = 'http://local.account.confone.com/login';
+$security_url = 'http://local.security.confone.com';
+$content_url = 'http://local.content.confone.com';
+
+
+// =======================================================================================
+// auto include directory information
+$autoload_dirs = array( 'util',
+						'controller',
+						'controller/about' );
+
+
+//=======================================================================================
+// Cache server information
+$cache_servers = array (
+'192.168.175.197' => '11211'
+);
+
+
+//=======================================================================================
+// logging information
+// INFO=4, WARN=3, ERROR=2, FATAL=1, NOTHING=0
+$log_level = 4;
+$log_file = '/opt/confone/www/logs/portal.log';
+
+$access_on = 1;
+$access_log = '/opt/confone/www/logs/portal_access.log';
+?>

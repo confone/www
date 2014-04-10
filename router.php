@@ -6,7 +6,7 @@ blockIp();
 include 'config/mapping.php';
 
 
-$uri = rtrim($_SERVER['REQUEST_URI'], '/');
+$_URI = rtrim($_SERVER['REQUEST_URI'], '/');
 
 $_WSESSION = WSession::instance();
 
@@ -16,8 +16,9 @@ header('X-Powered-By: Confone Inc.');
 $_PARAM = array();
 
 global $access_on;
-if ($access_on!=0) { Logger::access($uri); }
+if ($access_on!=0) { Logger::access($_URI); }
 
+$uri = $_URI;
 // if $uri is set add .php ot its end for include as file name
 //
 if (!empty($uri)) {
