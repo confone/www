@@ -1,5 +1,5 @@
 <?php
-global $base_url;
+global $base_host;
 ?><!DOCTYPE html>
 <html>
 <head>
