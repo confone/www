@@ -9,7 +9,8 @@ $content_url = 'http://local.content.confone.com';
 // auto include directory information
 $autoload_dirs = array( 'util',
 						'controller',
-						'controller/about' );
+						'controller/about',
+						'controller/page' );
 
 
 //=======================================================================================
