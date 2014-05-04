@@ -9,6 +9,7 @@ $content_url = 'https://staging.content.confone.com';
 // auto include directory information
 $autoload_dirs = array( 'util',
 						'controller',
+						'controller/ajax',
 						'controller/about',
 						'controller/page' );
 
