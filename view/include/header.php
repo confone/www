@@ -10,8 +10,10 @@ global $base_host;
 <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="/js/common.js"></script>
+<script src="/js/account.js"></script>
 
 <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/account.css">
 <?php if (isset($stylesheets)) {
     foreach ($stylesheets as $stylesheet) {
         echo '<link rel="stylesheet" href="/css/'.$stylesheet.'">';
@@ -21,6 +23,11 @@ global $base_host;
 <body>
 <div id="header">
 <div id="header_inner">
+<div id="profile"></div>
+<div id="header_link">
+<a href="http://local.doc.confone.com/">Documentation</a>
+<a href="http://local.doc.confone.com/">Help & Support</a>
+</div>
 <a id="logo" href="<?php global $www_url; echo $www_url; ?>">con<span>fone</span></a>
 </div>
 </div>
