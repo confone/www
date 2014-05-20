@@ -1,6 +1,6 @@
 <?php 
 $base_host = 'http://local.www.confone.com';
-$account_url = 'http://local.account.confone.com/login';
+$account_url = 'http://local.account.confone.com';
 $security_url = 'http://local.security.confone.com';
 $content_url = 'http://local.content.confone.com';
 
